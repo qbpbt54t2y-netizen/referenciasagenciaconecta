@@ -36,6 +36,24 @@ nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.95);border-bottom
 .benefit-icon{font-size:26px;color:#a855f7;margin-bottom:14px}
 .benefit-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:8px}
 .benefit-desc{font-size:13px;color:#777;line-height:1.6}
+.videos-section{background:#080808;padding:72px 24px;border-top:1px solid #1a1a2e;border-bottom:1px solid #1a1a2e}
+.videos-inner{max-width:960px;margin:0 auto}
+.carousel-wrap{position:relative;margin-top:36px;padding:0 28px}
+.carousel-track-outer{overflow:hidden;border-radius:12px}
+.carousel-track{display:flex;gap:16px;transition:transform .4s ease}
+.video-card{flex:0 0 calc(25% - 12px);background:#111;border:1px solid #222;border-radius:12px;overflow:hidden;aspect-ratio:9/16;position:relative;transition:border-color .2s}
+.video-card:hover{border-color:#7c3aed}
+.video-card video{width:100%;height:100%;object-fit:cover;display:block}
+.video-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#111;color:#333}
+.video-placeholder i{font-size:40px;color:#3a1a6e}
+.video-placeholder span{font-size:11px;letter-spacing:2px;color:#444;text-transform:uppercase;text-align:center;padding:0 16px;line-height:1.6}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:#1a0a2e;border:1px solid #6d28d9;color:#a855f7;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s}
+.carousel-btn:hover{background:#6d28d9;color:#fff}
+.carousel-btn.prev{left:0}
+.carousel-btn.next{right:0}
+.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.dot{width:8px;height:8px;border-radius:50%;background:#2a2a3e;cursor:pointer;transition:background .2s}
+.dot.active{background:#a855f7}
 .refs-section{background:#080808;padding:72px 24px;border-top:1px solid #1a1a2e;border-bottom:1px solid #1a1a2e}
 .refs-inner{max-width:960px;margin:0 auto}
 .refs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:36px}
@@ -83,11 +101,12 @@ footer p{font-size:12px;color:#333;letter-spacing:1px}
 .modal-img{max-width:90vw;max-height:85vh;border-radius:10px;border:1px solid #6d28d9;object-fit:contain}
 .modal-close{position:fixed;top:20px;right:20px;background:#1a0a2e;border:1px solid #6d28d9;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:201;transition:background .2s}
 .modal-close:hover{background:#6d28d9}
-@media(max-width:600px){
+@media(max-width:700px){
   .stats{flex-wrap:wrap}
   .stat-item{min-width:50%;border-right:none;border-bottom:1px solid #1a1a2e}
   .compare-table th,.compare-table td{padding:10px 8px;font-size:12px}
   .refs-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+  .video-card{flex:0 0 calc(80% - 12px)}
 }
 </style>
 </head>
@@ -102,7 +121,7 @@ footer p{font-size:12px;color:#333;letter-spacing:1px}
   <div class="hero-badge">+50,000 pedidos entregados</div>
   <h1>El servicio que <span>sí cumple</span>.<br>Las pruebas están aquí.</h1>
   <p>Más de 3 años entregando resultados reales en Facebook e Instagram para negocios mexicanos.</p>
-  <a class="btn-primary" href="https://agenciaconecta.com">Ver servicios en la tienda</a>
+  <a class="btn-primary" href="#referencias">Ver referencias</a>
 </div>
 
 <div class="stats">
@@ -126,7 +145,53 @@ footer p{font-size:12px;color:#333;letter-spacing:1px}
   </div>
 </div>
 
-<div class="refs-section">
+<div class="videos-section">
+  <div class="videos-inner">
+    <div class="section-label" style="text-align:center">Clientes reales</div>
+    <div class="section-title" style="text-align:center">Lo que dicen en video</div>
+    <div class="section-sub" style="text-align:center;margin-bottom:0">Testimonios sin guión. Voz de clientes reales.</div>
+    <div class="carousel-wrap">
+      <button class="carousel-btn prev" onclick="moveCarousel(-1)"><i class="ti ti-chevron-left"></i></button>
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="carousel-track">
+
+          <div class="video-card">
+            <video controls playsinline preload="none">
+              <source src="https://i.imgur.com/xukxuTO.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="video-card">
+            <video controls playsinline preload="none">
+              <source src="https://i.imgur.com/kPXh8CO.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <!-- VIDEO 3 — reemplaza cuando tengas el link -->
+          <div class="video-card">
+            <div class="video-placeholder">
+              <i class="ti ti-video"></i>
+              <span>Próximamente<br>video UGC 3</span>
+            </div>
+          </div>
+
+          <!-- VIDEO 4 — reemplaza cuando tengas el link -->
+          <div class="video-card">
+            <div class="video-placeholder">
+              <i class="ti ti-video"></i>
+              <span>Próximamente<br>video UGC 4</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="moveCarousel(1)"><i class="ti ti-chevron-right"></i></button>
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+  </div>
+</div>
+
+<div class="refs-section" id="referencias">
   <div class="refs-inner">
     <div class="section-label" style="text-align:center">Prueba real</div>
     <div class="section-title" style="text-align:center">Lo que dicen nuestros clientes</div>
@@ -234,7 +299,6 @@ const IMAGES = [
 
 const BATCH = 24;
 let shown = 0;
-
 function loadMore() {
   const grid = document.getElementById('refs-grid');
   const end = Math.min(shown + BATCH, IMAGES.length);
@@ -255,7 +319,6 @@ function loadMore() {
   shown = end;
   if (shown >= IMAGES.length) document.getElementById('load-more-btn').style.display = 'none';
 }
-
 loadMore();
 
 function openImg(url) {
@@ -263,16 +326,42 @@ function openImg(url) {
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
 function closeModal(e) {
   if (!e || e.target === document.getElementById('modal') || e.currentTarget.classList.contains('modal-close')) {
     document.getElementById('modal').classList.remove('open');
     document.body.style.overflow = '';
   }
 }
-
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
+// CARRUSEL
+const track = document.getElementById('carousel-track');
+const dotsContainer = document.getElementById('carousel-dots');
+let currentSlide = 0;
+const totalSlides = 4;
+for (let i = 0; i < totalSlides; i++) {
+  const dot = document.createElement('div');
+  dot.className = 'dot' + (i === 0 ? ' active' : '');
+  dot.onclick = () => goToSlide(i);
+  dotsContainer.appendChild(dot);
+}
+function getVisible() { return window.innerWidth <= 700 ? 1 : 4; }
+function moveCarousel(dir) {
+  const max = totalSlides - getVisible();
+  currentSlide = Math.max(0, Math.min(currentSlide + dir, max));
+  updateCarousel();
+}
+function goToSlide(i) { currentSlide = i; updateCarousel(); }
+function updateCarousel() {
+  const cards = track.querySelectorAll('.video-card');
+  if (!cards.length) return;
+  const cardWidth = cards[0].offsetWidth + 16;
+  track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+window.addEventListener('resize', updateCarousel);
+
+// FAQ
 const faqs = [
   {q:"¿Necesitan acceso a mi cuenta?", a:"No. Jamás pedimos contraseñas ni acceso a tu perfil. Solo necesitamos el enlace público de tu página o perfil de Facebook o Instagram."},
   {q:"¿Por qué pueden bajar un poco los seguidores o likes?", a:"Es completamente normal en todos los servicios de este tipo. Las plataformas hacen limpiezas periódicas de cuentas inactivas. Por eso ofrecemos garantía: si la caída supera el 10% de tu pedido original, reponemos sin costo adicional."},
@@ -282,7 +371,6 @@ const faqs = [
   {q:"¿Puedo pedir cantidades grandes?", a:"Sí, atendemos pedidos de alto volumen. Si necesitas cantidades especiales contáctanos por WhatsApp para una cotización personalizada con beneficios exclusivos."},
   {q:"¿Funciona para Facebook e Instagram?", a:"Sí. Ofrecemos servicios para ambas plataformas: seguidores, likes, reacciones, comentarios, vistas y más. Revisa el catálogo completo en nuestra tienda."},
 ];
-
 const faqList = document.getElementById('faq-list');
 faqs.forEach((f, i) => {
   const item = document.createElement('div');
@@ -291,7 +379,6 @@ faqs.forEach((f, i) => {
   item.innerHTML = `<div class="faq-q" onclick="toggleFaq(${i})">${f.q}<i class="ti ti-plus"></i></div><div class="faq-a">${f.a}</div>`;
   faqList.appendChild(item);
 });
-
 function toggleFaq(i) {
   document.querySelectorAll('.faq-item').forEach((el, j) => { if (j !== i) el.classList.remove('open'); });
   document.getElementById('faq' + i).classList.toggle('open');
@@ -299,4 +386,5 @@ function toggleFaq(i) {
 </script>
 </body>
 </html>
+
 
