@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conecta MX — Referencias y prueba social</title>
+<meta name="description" content="Más de 50,000 pedidos entregados. Seguidores, likes y reacciones para Facebook e Instagram. Resultados reales verificados por clientes.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.8.0/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#0a0a0a;color:#fff;font-family:system-ui,-apple-system,sans-serif;width:100%;overflow-x:hidden}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.95);border-bottom:1px solid #1a1a2e;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:13px;font-weight:700;letter-spacing:4px;color:#a855f7;text-transform:uppercase}
+.nav-btn{background:#6d28d9;color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:5px;text-decoration:none;letter-spacing:1px;text-transform:uppercase;border:none;cursor:pointer}
+.nav-btn:hover{background:#5b21b6}
+
+/* HERO */
+.hero{background:#0a0a0a;padding:80px 24px 60px;text-align:center;border-bottom:1px solid #1a1a2e}
+.hero-badge{display:inline-block;background:#1a0a2e;border:1px solid #7c3aed;color:#a855f7;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;border-radius:4px;margin-bottom:24px}
+.hero h1{font-size:clamp(32px,6vw,56px);font-weight:800;line-height:1.1;margin-bottom:16px;color:#fff}
+.hero h1 span{color:#a855f7}
+.hero p{font-size:16px;color:#888;max-width:500px;margin:0 auto 36px;line-height:1.6}
+.btn-primary{display:inline-block;background:#6d28d9;color:#fff;font-size:14px;font-weight:700;padding:16px 40px;border-radius:6px;text-decoration:none;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:none;transition:background .2s}
+.btn-primary:hover{background:#5b21b6}
+
+/* STATS */
+.stats{display:flex;justify-content:center;background:#0a0a0a;border-bottom:1px solid #1a1a2e;flex-wrap:wrap}
+.stat-item{flex:1;min-width:120px;max-width:220px;padding:32px 20px;text-align:center;border-right:1px solid #1a1a2e}
+.stat-item:last-child{border-right:none}
+.stat-num{font-size:32px;font-weight:800;color:#a855f7;display:block}
+.stat-label{font-size:11px;color:#666;letter-spacing:2px;text-transform:uppercase;margin-top:6px;display:block}
+
+/* SECTIONS */
+.section{padding:72px 24px;max-width:960px;margin:0 auto}
+.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#a855f7;margin-bottom:12px;text-align:center}
+.section-title{font-size:clamp(24px,4vw,38px);font-weight:800;text-align:center;margin-bottom:10px;color:#fff}
+.section-sub{font-size:15px;color:#777;text-align:center;margin-bottom:48px;line-height:1.6;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* BENEFITS */
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.benefit-card{background:#111;border:1px solid #222;border-radius:12px;padding:28px 22px;transition:border-color .2s,transform .2s}
+.benefit-card:hover{border-color:#6d28d9;transform:translateY(-2px)}
+.benefit-icon{font-size:26px;color:#a855f7;margin-bottom:14px}
+.benefit-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:8px}
+.benefit-desc{font-size:13px;color:#777;line-height:1.6}
+
+/* REFS */
+.refs-section{background:#080808;padding:72px 24px;border-top:1px solid #1a1a2e;border-bottom:1px solid #1a1a2e}
+.refs-inner{max-width:960px;margin:0 auto}
+.refs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:36px}
+.ref-card{background:#111;border:1px solid #222;border-radius:10px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,transform .15s}
+.ref-card:hover{border-color:#7c3aed;transform:scale(1.02)}
+.ref-card img{width:100%;height:100%;object-fit:cover}
+.ref-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#2a2a3e}
+.ref-placeholder i{font-size:28px}
+.ref-placeholder span{font-size:10px;letter-spacing:2px;color:#333;text-transform:uppercase}
+.load-more{display:block;margin:32px auto 0;background:transparent;border:1px solid #6d28d9;color:#a855f7;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:12px 32px;border-radius:5px;cursor:pointer;transition:background .2s,color .2s}
+.load-more:hover{background:#6d28d9;color:#fff}
+
+/* COMPARE */
+.compare-wrap{background:#0a0a0a;padding:72px 24px;border-top:1px solid #1a1a2e}
+.compare-inner{max-width:820px;margin:0 auto}
+.compare-table{width:100%;border-collapse:collapse;margin-top:36px;table-layout:fixed}
+.compare-table th{padding:16px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#555;text-align:center;border-bottom:1px solid #1a1a2e}
+.compare-table th.hl{background:#5b21b6;color:#fff;border-radius:10px 10px 0 0;font-size:14px;letter-spacing:0;font-weight:800}
+.compare-table th:first-child{text-align:left;width:42%}
+.compare-table td{padding:16px;font-size:14px;text-align:center;border-bottom:1px solid #141414;color:#444;vertical-align:middle}
+.compare-table td:first-child{text-align:left;color:#ccc;font-weight:600}
+.compare-table td.hl{background:#120820}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:hover td{background:#0e0e0e}
+.compare-table tr:hover td.hl{background:#150a24}
+.ck{color:#a855f7;font-size:20px;font-weight:800}
+.cx{color:#2a2a2a;font-size:20px}
+.cp{color:#3a3a5a;font-size:20px}
+
+/* FAQ */
+.faq-section{background:#080808;padding:72px 24px;border-top:1px solid #1a1a2e}
+.faq-inner{max-width:720px;margin:0 auto}
+.faq-item{border-bottom:1px solid #1a1a2e;padding:22px 0}
+.faq-q{font-size:15px;font-weight:700;color:#fff;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none}
+.faq-q i{color:#7c3aed;flex-shrink:0;font-size:18px;transition:transform .25s}
+.faq-a{font-size:14px;color:#777;line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s}
+.faq-item.open .faq-a{max-height:300px;padding-top:14px}
+.faq-item.open .faq-q i{transform:rotate(45deg)}
+
+/* CTA */
+.cta-section{padding:80px 24px;text-align:center;background:#0a0a0a;border-top:1px solid #1a1a2e}
+.cta-section h2{font-size:clamp(24px,4vw,40px);font-weight:800;margin-bottom:14px;color:#fff}
+.cta-section p{font-size:15px;color:#777;margin-bottom:36px;line-height:1.6}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-secondary{display:inline-block;background:transparent;color:#a855f7;font-size:13px;font-weight:700;padding:14px 30px;border-radius:6px;text-decoration:none;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:1px solid #6d28d9;transition:background .2s}
+.btn-secondary:hover{background:#1a0a2e}
+
+/* FOOTER */
+footer{background:#050505;padding:28px 24px;text-align:center;border-top:1px solid #1a1a2e}
+footer p{font-size:12px;color:#333;letter-spacing:1px}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:200;align-items:center;justify-content:center;padding:40px 20px}
+.modal-overlay.open{display:flex}
+.modal-img{max-width:90vw;max-height:85vh;border-radius:10px;border:1px solid #6d28d9;object-fit:contain}
+.modal-close{position:fixed;top:20px;right:20px;background:#1a0a2e;border:1px solid #6d28d9;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:201;transition:background .2s}
+.modal-close:hover{background:#6d28d9}
+
+@media(max-width:600px){
+  .stats{flex-wrap:wrap}
+  .stat-item{min-width:50%;border-right:none;border-bottom:1px solid #1a1a2e}
+  .compare-table th,.compare-table td{padding:10px 8px;font-size:12px}
+  .refs-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Conecta MX</div>
+  <a class="nav-btn" href="https://agenciaconecta.com">Ver servicios</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">+50,000 pedidos entregados</div>
+  <h1>El servicio que <span>sí cumple</span>.<br>Las pruebas están aquí.</h1>
+  <p>Más de 3 años entregando resultados reales en Facebook e Instagram para negocios mexicanos.</p>
+  <a class="btn-primary" href="https://agenciaconecta.com">Ver servicios en la tienda</a>
+</div>
+
+<div class="stats">
+  <div class="stat-item"><span class="stat-num">+50K</span><span class="stat-label">pedidos entregados</span></div>
+  <div class="stat-item"><span class="stat-num">3+</span><span class="stat-label">años operando</span></div>
+  <div class="stat-item"><span class="stat-num">&lt;6h</span><span class="stat-label">tiempo de entrega</span></div>
+  <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">sin contraseñas</span></div>
+</div>
+
+<div class="section">
+  <div class="section-label">Por qué elegirnos</div>
+  <div class="section-title">Lo que nos diferencia</div>
+  <div class="section-sub">Servicios reales, entrega rápida y soporte que responde cuando lo necesitas.</div>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon"><i class="ti ti-shield-check"></i></div>
+      <div class="benefit-title">Sin contraseñas ni accesos</div>
+      <div class="benefit-desc">Nunca pedimos acceso a tu cuenta. Tu seguridad es nuestra prioridad.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><i class="ti ti-clock"></i></div>
+      <div class="benefit-title">Entrega en menos de 6 horas</div>
+      <div class="benefit-desc">La mayoría de pedidos inician en minutos. Sin esperas de días.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><i class="ti ti-message-circle"></i></div>
+      <div class="benefit-title">Soporte en español</div>
+      <div class="benefit-desc">Atención real por WhatsApp, en tu idioma, cuando lo necesitas.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><i class="ti ti-refresh"></i></div>
+      <div class="benefit-title">Garantía de reposición</div>
+      <div class="benefit-desc">Si la caída supera el 10%, te reponemos sin cuestionarte.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><i class="ti ti-map-pin"></i></div>
+      <div class="benefit-title">Perfiles mexicanos</div>
+      <div class="benefit-desc">Disponibilidad de perfiles de México para mayor naturalidad.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><i class="ti ti-star"></i></div>
+      <div class="benefit-title">+50,000 pedidos entregados</div>
+      <div class="benefit-desc">Más de 3 años de experiencia y clientes que siguen eligiéndonos.</div>
+    </div>
+  </div>
+</div>
+
+<div class="refs-section">
+  <div class="refs-inner">
+    <div class="section-label" style="text-align:center">Prueba real</div>
+    <div class="section-title" style="text-align:center">Lo que dicen nuestros clientes</div>
+    <div class="section-sub" style="text-align:center;margin-bottom:0">Capturas reales. Sin edición. Sin filtros.</div>
+    <div class="refs-grid" id="refs-grid"></div>
+    <button class="load-more" id="load-more-btn" onclick="loadMore()">Cargar más referencias</button>
+  </div>
+</div>
+
+<div class="compare-wrap">
+  <div class="compare-inner">
+    <div class="section-label" style="text-align:center">Comparativa</div>
+    <div class="section-title" style="text-align:center">Conecta MX vs otros proveedores</div>
+    <div class="section-sub" style="text-align:center;margin-bottom:0">Compara y decide con información real.</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="text-align:left">Característica</th>
+          <th class="hl">Conecta MX</th>
+          <th>Proveedor genérico</th>
+          <th>Freelancer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Perfiles mexicanos</td><td class="hl"><span class="ck">✓</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td></tr>
+        <tr><td>Comentarios personalizados</td><td class="hl"><span class="ck">✓</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td></tr>
+        <tr><td>Entrega en menos de 6 horas</td><td class="hl"><span class="ck">✓</span></td><td><span class="cp">✓</span></td><td><span class="cx">✗</span></td></tr>
+        <tr><td>Sin contraseñas ni accesos</td><td class="hl"><span class="ck">✓</span></td><td><span class="cp">✓</span></td><td><span class="cx">✗</span></td></tr>
+        <tr><td>Soporte WhatsApp en español</td><td class="hl"><span class="ck">✓</span></td><td><span class="cx">✗</span></td><td><span class="cp">✓</span></td></tr>
+        <tr><td>Garantía de reposición</td><td class="hl"><span class="ck">✓</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td></tr>
+        <tr><td>+50,000 pedidos de experiencia</td><td class="hl"><span class="ck">✓</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="faq-inner">
+    <div class="section-label" style="text-align:center">Dudas frecuentes</div>
+    <div class="section-title" style="text-align:center">Resolvemos tus preguntas</div>
+    <div style="margin-top:40px" id="faq-list"></div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>¿Listo para crecer tu perfil?</h2>
+  <p>Más de 50,000 pedidos entregados. El siguiente puede ser el tuyo.</p>
+  <div class="cta-btns">
+    <a class="btn-primary" href="https://agenciaconecta.com">Ver servicios ahora</a>
+    <a class="btn-secondary" href="https://agenciaconecta.com">Ver catálogo completo</a>
+  </div>
+</div>
+
+<footer>
+  <p>CONECTA MX — agenciaconecta.com — Todos los derechos reservados</p>
+</footer>
+
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <button class="modal-close" onclick="closeModal()"><i class="ti ti-x"></i></button>
+  <img class="modal-img" id="modal-img" src="" alt="Referencia de cliente">
+</div>
+
+<script>
+// ══════════════════════════════════════════
+//  AGREGA TUS IMÁGENES AQUÍ
+//  Sube cada captura a imgur.com (sin cuenta)
+//  y pega la URL directa en este array
+// ══════════════════════════════════════════
+const IMAGES = [
+  // "https://i.imgur.com/XXXXXXX.jpg",
+  // "https://i.imgur.com/YYYYYYY.jpg",
+  // Puedes agregar cientos de URLs
+];
+
+const BATCH = 24;
+let shown = 0;
+const total = IMAGES.length || 48;
+
+function loadMore() {
+  const grid = document.getElementById('refs-grid');
+  const end = Math.min(shown + BATCH, total);
+  for (let i = shown; i < end; i++) {
+    if (IMAGES[i]) {
+      const card = document.createElement('div');
+      card.className = 'ref-card';
+      card.onclick = () => openImg(IMAGES[i]);
+      const img = document.createElement('img');
+      img.src = IMAGES[i];
+      img.alt = 'Referencia ' + (i + 1);
+      img.loading = 'lazy';
+      img.onerror = function() {
+        this.parentElement.innerHTML = '<div class="ref-placeholder"><i class="ti ti-photo"></i><span>REF ' + (i+1) + '</span></div>';
+      };
+      card.appendChild(img);
+      grid.appendChild(card);
+    } else {
+      grid.insertAdjacentHTML('beforeend',
+        '<div class="ref-card"><div class="ref-placeholder"><i class="ti ti-photo"></i><span>REF ' + (i+1) + '</span></div></div>'
+      );
+    }
+  }
+  shown = end;
+  if (shown >= total) document.getElementById('load-more-btn').style.display = 'none';
+}
+
+loadMore();
+
+function openImg(url) {
+  document.getElementById('modal-img').src = url;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modal') || e.currentTarget.classList.contains('modal-close')) {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+const faqs = [
+  {q:"¿Necesitan acceso a mi cuenta?", a:"No. Jamás pedimos contraseñas ni acceso a tu perfil. Solo necesitamos el enlace público de tu página o perfil de Facebook o Instagram."},
+  {q:"¿Por qué pueden bajar un poco los seguidores o likes?", a:"Es completamente normal en todos los servicios de este tipo. Las plataformas hacen limpiezas periódicas de cuentas inactivas. Por eso ofrecemos garantía: si la caída supera el 10% de tu pedido original, reponemos sin costo adicional."},
+  {q:"¿Cuánto tarda en llegar mi pedido?", a:"La mayoría inicia en minutos y se completa en menos de 6 horas. Para pedidos de alto volumen puede extenderse un poco más, pero siempre te avisamos con tiempo."},
+  {q:"¿Es seguro para mi cuenta de Facebook o Instagram?", a:"Sí. Miles de clientes llevan años usando nuestros servicios sin problemas. No usamos métodos agresivos ni pedimos datos sensibles de tu cuenta."},
+  {q:"¿Qué pasa si tengo un problema con mi pedido?", a:"Contamos con soporte por WhatsApp en español. Escríbenos y resolvemos. Tenemos más de 3 años y 50,000 pedidos de experiencia manejando cualquier situación."},
+  {q:"¿Puedo pedir cantidades grandes?", a:"Sí, atendemos pedidos de alto volumen. Si necesitas cantidades especiales contáctanos por WhatsApp para una cotización personalizada con beneficios exclusivos."},
+  {q:"¿Funciona para Facebook e Instagram?", a:"Sí. Ofrecemos servicios para ambas plataformas: seguidores, likes, reacciones, comentarios, vistas y más. Revisa el catálogo completo en nuestra tienda."},
+];
+
+const faqList = document.getElementById('faq-list');
+faqs.forEach((f, i) => {
+  const item = document.createElement('div');
+  item.className = 'faq-item';
+  item.id = 'faq' + i;
+  item.innerHTML = `<div class="faq-q" onclick="toggleFaq(${i})">${f.q}<i class="ti ti-plus"></i></div><div class="faq-a">${f.a}</div>`;
+  faqList.appendChild(item);
+});
+
+function toggleFaq(i) {
+  document.querySelectorAll('.faq-item').forEach((el, j) => {
+    if (j !== i) el.classList.remove('open');
+  });
+  document.getElementById('faq' + i).classList.toggle('open');
+}
+</script>
+</body>
+</html>
