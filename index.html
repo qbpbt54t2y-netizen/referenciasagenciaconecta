@@ -44,9 +44,6 @@ nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.95);border-bottom
 .video-card{flex:0 0 calc(25% - 12px);background:#111;border:1px solid #222;border-radius:12px;overflow:hidden;aspect-ratio:9/16;position:relative;transition:border-color .2s}
 .video-card:hover{border-color:#7c3aed}
 .video-card video{width:100%;height:100%;object-fit:cover;display:block}
-.video-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#111;color:#333}
-.video-placeholder i{font-size:40px;color:#3a1a6e}
-.video-placeholder span{font-size:11px;letter-spacing:2px;color:#444;text-transform:uppercase;text-align:center;padding:0 16px;line-height:1.6}
 .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:#1a0a2e;border:1px solid #6d28d9;color:#a855f7;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s}
 .carousel-btn:hover{background:#6d28d9;color:#fff}
 .carousel-btn.prev{left:0}
@@ -145,44 +142,36 @@ footer p{font-size:12px;color:#333;letter-spacing:1px}
   </div>
 </div>
 
+<!-- VIDEOS UGC -->
 <div class="videos-section">
   <div class="videos-inner">
-    <div class="section-label" style="text-align:center">Clientes reales</div>
-    <div class="section-title" style="text-align:center">Lo que dicen en video</div>
-    <div class="section-sub" style="text-align:center;margin-bottom:0">Testimonios sin guión. Voz de clientes reales.</div>
+    <div class="section-label" style="text-align:center">Videos</div>
+    <div class="section-title" style="text-align:center">La comunidad Conecta MX</div>
+    <div class="section-sub" style="text-align:center;margin-bottom:0">Miles de perfiles creciendo. Estos son algunos de ellos.</div>
     <div class="carousel-wrap">
       <button class="carousel-btn prev" onclick="moveCarousel(-1)"><i class="ti ti-chevron-left"></i></button>
       <div class="carousel-track-outer">
         <div class="carousel-track" id="carousel-track">
-
           <div class="video-card">
             <video controls playsinline preload="none">
               <source src="https://i.imgur.com/xukxuTO.mp4" type="video/mp4">
             </video>
           </div>
-
           <div class="video-card">
             <video controls playsinline preload="none">
               <source src="https://i.imgur.com/kPXh8CO.mp4" type="video/mp4">
             </video>
           </div>
-
-          <!-- VIDEO 3 — reemplaza cuando tengas el link -->
           <div class="video-card">
-            <div class="video-placeholder">
-              <i class="ti ti-video"></i>
-              <span>Próximamente<br>video UGC 3</span>
-            </div>
+            <video controls playsinline preload="none">
+              <source src="https://i.imgur.com/p12lx1P.mp4" type="video/mp4">
+            </video>
           </div>
-
-          <!-- VIDEO 4 — reemplaza cuando tengas el link -->
           <div class="video-card">
-            <div class="video-placeholder">
-              <i class="ti ti-video"></i>
-              <span>Próximamente<br>video UGC 4</span>
-            </div>
+            <video controls playsinline preload="none">
+              <source src="https://i.imgur.com/YXGtG01.mp4" type="video/mp4">
+            </video>
           </div>
-
         </div>
       </div>
       <button class="carousel-btn next" onclick="moveCarousel(1)"><i class="ti ti-chevron-right"></i></button>
@@ -191,6 +180,7 @@ footer p{font-size:12px;color:#333;letter-spacing:1px}
   </div>
 </div>
 
+<!-- REFERENCIAS -->
 <div class="refs-section" id="referencias">
   <div class="refs-inner">
     <div class="section-label" style="text-align:center">Prueba real</div>
@@ -386,6 +376,4 @@ function toggleFaq(i) {
 </script>
 </body>
 </html>
-
-
 
